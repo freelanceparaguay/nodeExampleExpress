@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title><%= title %></title>
+		<link rel='stylesheet' href='/stylesheets/style.css' />
+	</head>
+	<body>
+		<h1><%= title %></h1>
+		<p>Carga.</p>
+		<form method='post' enctype='multipart/form-data'>
+			<p><input type='text', name='formulario[APELLIDO]', placeholder='APELLIDO'/></p>
+		 	<p><input type='text', name='formulario[DESCRIPCION]', placeholder='DESCRIPCION'/></p> 
+			<p><input type='submit', value='Add'/></p>
+		</form>
+	</body>
+</html>

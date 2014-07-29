@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>Bienvenido a <%= title %> <br></p>
+    <p>Esta aplicacion ilustra el uso de una base de datos en este caso Mysql.<br>
+       Se agregan registros a una tabla y se permiten opciones basicas para acceso a los datos:<br>
+       * Mostrar.<br>
+       * Agregar.<br>
+       * Editar.<br>
+       * Borrar<br>	
+       <br>
+    	Es un ejemplo basico, pero es necesario trabajarlo para lograr utilizarlo<br>
+    	como un sistema Modelo Vista Controlador.<br>
+    	La estructura de los arhivos no se encuentra preparada para agregar modulos,<br>
+    	Aun asi, sirve como ejemplo inicial<br>
+    	<br>
+    	Se manejan como conceptos:<br>
+    	* Framework Express().<br>
+    	* Vista de HTML utilizando EJS.<br>
+    	* HTML basico.<br>
+    	<br>
+    	Las funciones de agregar, editar, borrar, se hacen llamando urls con el metodo GET<br>
+    	a las cuales se le pasan los parametros de los registros en los que se trabajara.<br>
+    	<br>
+    	No se colocaron acentos en esta pagina.<br>
+    	<a class="a-inside edit" href="http://otroblogdetecnologias.blogspot.com">Visite http://otroblogdetecnologias.blogspot.com</a>  
+    </p>
+
+    <div class="page-data">
+    <div class="data-btn">
+        <a class="a-inside add" href="./add">+ Add</a>
+    </div>
+    <div class="data-table">
+            <table border="1" cellpadding="7" cellspacing="7">
+                <tr>
+                    <th width="50px">No</th>
+                    <th>ID</th>
+                    <th>APELLIDO</th>
+                    <th>DESCRIPCION</th>
+                    <th>Accion</th>                    
+                </tr>                               
+                <% if(data.length){
+                	for(var i = 0;i < data.length;i++) { %>                 
+                <tr>
+                    <td><%=(i+1)%></td>
+                    <td><%=data[i].ID%></td>
+                    <td><%=data[i].APELLIDO%></td>
+                    <td><%=data[i].DESCRIPCION%></td>
+                    <td>
+                        <a class="a-inside edit" href="../edit/<%=data[i].ID%>">Edit</a>                       
+                        <a class="a-inside delete" href="../delete/<%=data[i].ID%>">Delete</a>                       
+                    </td>
+                </tr>
+            <% }            
+             }else{ %>
+                 <tr>
+                    <td colspan="3">No user</td>
+                 </tr>
+            <% } %>                                                             
+            </table>
+         </div>
+        </div>
+  </body>
+</html>
+
+
+
+        
